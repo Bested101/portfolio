@@ -1,0 +1,307 @@
+:root {
+  --PrimaryColor: #bfabaf;
+  --SecondaryColor: #e9e2e4;
+  --AccentColor: #574246;
+  --MainBackground: #fafafa;
+  --SecondaryBackground: #f7f7f7;
+  --Text-Color: #050505;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--MainBackground);
+  color: var(--Text-Color);
+  font-family: 'Poppins', sans-serif;
+}
+
+:focus {
+  outline: none;
+}
+
+::selection {
+  background-color: var(--AccentColor);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+
+::-webkit-scrollbar {
+  width: 8px;
+  
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--PrimaryColor);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--AccentColor);
+}
+
+.container {
+  margin-inline: auto;
+  padding-inline: 15px;
+}
+
+@media (min-width:768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+@media (min-width:992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+@media (min-width:1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+header .container {
+  border-bottom: 1px solid var(--PrimaryColor);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 3px;
+  position: relative;
+  height: 80px;
+}
+
+header .container>svg {
+  fill: var(--AccentColor);
+  cursor: pointer;
+  display: none;
+}
+
+header h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 40px;
+  margin: 0;
+}
+
+header .container ul {
+  display: flex;
+  font-weight: 700;
+  font-size: 18px;
+  gap: 15px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+header .container ul svg {
+  display: none;
+}
+
+header .container ul li {
+  cursor: pointer;
+  transition: .2s;
+}
+
+header .container ul li:hover {
+  opacity: .7;
+}
+
+body>ul {
+  position: absolute;
+  background-color: var(--SecondaryColor);
+  height: 100vh;
+  z-index: 100;
+  width: 250px;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 50px 0 50px 50px;
+  transition: .2s;
+  opacity: 0;
+  left: -250px;
+}
+
+body>ul li {
+  margin-top: 25px;
+}
+
+body>ul svg {
+  fill: var(--PrimaryColor);
+  display: block;
+  margin: 0 50px 20px auto;
+  cursor: pointer;
+  transition: .2s;
+}
+
+body>ul svg:hover {
+  fill: var(--AccentColor);
+}
+
+body:has(ul.show-mobile)::before {
+  content: "";
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  z-index: 98;
+  background-color: var(--SecondaryColor);
+  opacity: .6;
+}
+
+body:has(ul.show-mobile){
+  overflow: hidden;
+}
+
+@media screen and (max-width:767px) {
+  header .container {
+    height: unset;
+    padding: 10px 15px;
+    justify-content: flex-start;
+    gap: 15px;
+  }
+
+  header .container .theme-toggle {
+    margin-left: auto;
+  }
+
+  header .container>svg {
+    display: block;
+  }
+}
+
+.landing .container {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 90px;
+}
+
+.landing h1 {
+  font-size: 65px;
+  font-weight: bolder;
+  margin: 0;
+}
+
+.landing p {
+  font-size: 19px;
+  margin-top: 10px;
+}
+
+.landing .skills {
+  display: flex;
+  align-items: center;
+}
+
+.landing .skills h2 {
+  color: var(--AccentColor);
+  font-family: 'Bebas Neue', sans-serif;
+  border-right: 2px solid var(--AccentColor);
+  padding-right: 15px;
+  margin-right: 25px;
+  font-size: 26px;
+}
+
+.landing .skills ul {
+  display: flex;
+  gap: 20px;
+}
+
+.landing .skills li {
+  background-color: var(--SecondaryColor);
+  display: grid;
+  place-items: center;
+  width: 60px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.landing .skills img {
+  max-width: 34px;
+  aspect-ratio: 1;
+}
+
+@media screen and (max-width:767px) {
+  .landing .container {
+    min-height: calc(100vh - 67px);
+  }
+
+  .landing .info {
+    text-align: center;
+  }
+
+  .landing h1 {
+    font-size: 60px;
+  }
+
+  .landing .skills {
+    flex-direction: column;
+  }
+
+  .landing .skills h2 {
+    border-right: 0;
+    padding-right: 0;
+    margin-right: 0;
+    border-bottom: 2px solid var(--AccentColor);
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+  }
+}
+
+.about {
+  background-color: var(--SecondaryBackground);
+}
+
+.about .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 800px;
+  height: 420px;
+  gap: 60px;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.about h3 {
+  color: var(--AccentColor);
+  font-size: 28px;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px;
+}
+
+.about img {
+  border-radius: 50%;
+  max-width: clamp(200px, 300px, 100%);
+}
+
+@media screen and (max-width:767px) {
+  .about .container {
+    flex-direction: column;
+    height: auto;
+    padding: 25px 15px;
+    text-align: center;
+  }
+
+  .about p {
+    max-width: 520px;
+    font-size: 15px;
+  }
+}
